@@ -1,0 +1,104 @@
+/* static/style.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root {
+    --bg-color: #1a1a1a;
+    --surface-color: #2a2a2a;
+    --primary-color: #6a5acd; /* A nice purple */
+    --text-color: #f0f0f0;
+    --text-muted-color: #a0a0a0;
+    --border-color: #3a3a3a;
+    --success-color: #2ecc71;
+    --error-color: #e74c3c;
+}
+
+/* --- General --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+.container { display: flex; width: 100%; height: 100%; }
+
+/* --- Sidebar (Upload Panel) --- */
+.sidebar {
+    width: 350px;
+    background-color: #111;
+    padding: 2rem;
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+.sidebar h2 { margin-bottom: 2rem; text-align: center; }
+.form-group input[type="file"] { display: none; }
+.custom-file-upload {
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.custom-file-upload:hover { border-color: var(--primary-color); background-color: var(--surface-color); }
+.custom-file-upload i { font-size: 2rem; margin-bottom: 0.5rem; } /* Placeholder for icon */
+#file-name { color: var(--text-muted-color); margin-top: 1rem; }
+.btn-upload {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.btn-upload:hover { background-color: #7b68ee; }
+.upload-status { margin-top: 1.5rem; text-align: center; }
+.upload-status.processing { color: var(--primary-color); }
+.upload-status.success { color: var(--success-color); }
+.upload-status.error { color: var(--error-color); }
+
+/* --- Chat --- */
+.chat-container { flex: 1; display: flex; flex-direction: column; height: 100vh; }
+.chat-header { padding: 1.5rem; border-bottom: 1px solid var(--border-color); text-align: center; }
+.chat-header h1 { color: var(--primary-color); }
+.chat-box { flex: 1; padding: 1.5rem; overflow-y: auto; }
+.message { margin-bottom: 1.5rem; max-width: 80%; display: flex; }
+.message p { padding: 1rem; border-radius: 12px; line-height: 1.6; }
+.user-message { margin-left: auto; flex-direction: row-reverse; }
+.user-message p { background-color: var(--primary-color); color: white; border-bottom-right-radius: 2px; }
+.assistant-message { margin-right: auto; }
+.assistant-message p { background-color: var(--surface-color); border: 1px solid var(--border-color); border-bottom-left-radius: 2px; }
+.chat-input-area { padding: 1.5rem; border-top: 1px solid var(--border-color); }
+#chat-form { display: flex; }
+#user-input {
+    flex: 1;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--surface-color);
+    color: var(--text-color);
+    font-size: 1rem;
+}
+#user-input:disabled { background-color: #333; cursor: not-allowed; }
+#send-button {
+    padding: 1rem 1.5rem;
+    margin-left: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+}
+#send-button:disabled { background-color: #555; cursor: not-allowed; }

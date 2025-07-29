@@ -1,0 +1,23 @@
+# .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment
+.env
+venv/
+.venv/
+ENV/
+env/
+
+# Uploads
+/uploads/
+
+# IDE specific
+.vscode/
+.idea/
+
+# System specific
+.DS_Store

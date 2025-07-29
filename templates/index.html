@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG with PDF 📚</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Upload a Document</h2>
+            <form id="upload-form" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="file-upload" class="custom-file-upload">
+                        <i class="icon-upload"></i> Choose PDF File
+                    </label>
+                    <input id="file-upload" type="file" name="file" accept=".pdf" required>
+                    <span id="file-name">No file chosen</span>
+                </div>
+                <button type="submit" class="btn-upload">Process Document</button>
+            </form>
+            <div id="upload-status" class="upload-status"></div>
+        </aside>
+
+        <main class="chat-container">
+            <header class="chat-header">
+                <h1>Chat With Your Document</h1>
+                <p>Upload a PDF and ask questions about its content.</p>
+            </header>
+            <div id="chat-box" class="chat-box">
+                <div class="message assistant-message">
+                    <p>Please upload a PDF document using the panel on the left to begin.</p>
+                </div>
+            </div>
+            <footer class="chat-input-area">
+                <form id="chat-form">
+                    <input type="text" id="user-input" placeholder="Ask a question..." autocomplete="off" disabled>
+                    <button type="submit" id="send-button" disabled>Send</button>
+                </form>
+            </footer>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
